@@ -1,9 +1,9 @@
 # Launcher
 Simple and configurable Qt based application launcher.
 
-![](.\documentation\Launcher1.png)
+![](documentation\Launcher1.png)
 
-![](.\documentation\Launcher2.png)
+![](documentation\Launcher2.png)
 
 ## Idea
 
