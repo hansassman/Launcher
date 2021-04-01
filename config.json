@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "icon": "C:/Users/User/Pictures/Icons/ubuntu.png",
+      "executable": "wt.exe",
+      "cliParameters": "-p Ubuntu"
+    },
+    {
+      "icon": "C:/Users/User/Pictures/Icons/debian.png",
+      "executable": "wt.exe",
+      "cliParameters": "-p Debian"
+    },
+    {
+      "icon": "C:/Users/User/Pictures/Icons/qt.png",
+      "executable": "C:/Qt/Tools/Preview/Qt Creator 4.15.0-beta1/bin/qtcreator.exe",
+      "workingDirectory" : "C:/Users/User"
+    }
+  ],
+  "theme": {
+    "background-color": "#333333",
+    "selected-color": "#232323",
+    "not-selected-color": "#333333"
+  }
+}
