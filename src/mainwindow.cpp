@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(const QString& configurationFile, QWidget* parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(const QString& configurationFile, QWidget* parent) : QMainWindow(parent)
 {
-    if (!m_configurationParser.readConfiguration(configurationFile)) {
+    if (!m_configurationParser.readConfiguration(configurationFile))
+    {
         exitProgram(1);
     }
 
@@ -27,14 +27,15 @@ MainWindow::MainWindow(const QString& configurationFile, QWidget* parent)
 
 void MainWindow::createItems()
 {
-
     const auto items = m_configurationParser.items();
 
-    for (size_t index = 0; index < items.size(); ++index) {
+    for (size_t index = 0; index < items.size(); ++index)
+    {
         const auto& item = items.at(index);
         auto& label = m_items.emplace_back(std::make_unique<QLabel>(this));
         label->setGeometry(m_size * index, 0, m_size, m_size);
-        label->setPixmap(QPixmap(item.icon).scaled(m_iconSize, m_iconSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        label->setPixmap(QPixmap(item.icon).scaled(
+                m_iconSize, m_iconSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
         label->setAlignment(Qt::AlignCenter);
         label->setStyleSheet(!index ? m_selectedItemStyle : m_notSelectedItemStyle);
         label->setProperty("executable", item.program);
@@ -52,13 +53,16 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
 {
     Q_UNUSED(obj)
 
-    if (event->type() == QEvent::WindowDeactivate) {
+    if (event->type() == QEvent::WindowDeactivate)
+    {
         exit(0);
     }
 
-    if (event->type() == QEvent::KeyPress) {
+    if (event->type() == QEvent::KeyPress)
+    {
         QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
-        switch (keyEvent->key()) {
+        switch (keyEvent->key())
+        {
         case Qt::Key_Left:
             decrementIndex();
             break;
@@ -82,7 +86,8 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
 void MainWindow::incrementIndex()
 {
     m_items.at(m_currentIndex)->setStyleSheet(m_notSelectedItemStyle);
-    if (++m_currentIndex >= (int)m_items.size()) {
+    if (++m_currentIndex >= (int) m_items.size())
+    {
         m_currentIndex = 0;
     }
     m_items.at(m_currentIndex)->setStyleSheet(m_selectedItemStyle);
@@ -91,7 +96,8 @@ void MainWindow::incrementIndex()
 void MainWindow::decrementIndex()
 {
     m_items.at(m_currentIndex)->setStyleSheet(m_notSelectedItemStyle);
-    if (--m_currentIndex < 0) {
+    if (--m_currentIndex < 0)
+    {
         m_currentIndex = m_items.size() - 1;
     }
     m_items.at(m_currentIndex)->setStyleSheet(m_selectedItemStyle);

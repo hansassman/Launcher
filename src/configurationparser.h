@@ -11,16 +11,21 @@
 #include <optional>
 #include <vector>
 
-class ConfigurationParser : public QObject {
+class ConfigurationParser : public QObject
+{
+    Q_OBJECT
+
 public:
-    struct Item {
+    struct Item
+    {
         QString icon;
         QString program;
         QString cliParameters;
         QString workingDirectory;
     };
 
-    struct Theme {
+    struct Theme
+    {
         QString backgroundColor = "#333333";
         QString selectedColor = "#111111";
         QString notSelectedColor = "#333333";

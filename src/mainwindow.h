@@ -13,9 +13,9 @@
 #include <memory>
 #include <vector>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
-
 public:
     explicit MainWindow(const QString& configurationFile, QWidget* parent = nullptr);
     virtual bool eventFilter(QObject* obj, QEvent* event) override;

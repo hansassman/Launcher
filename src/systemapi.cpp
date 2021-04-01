@@ -1,6 +1,8 @@
 #include "systemapi.h"
 #include <QDebug>
-void SystemApi::startProcess(const QString& command, const QString& cliParameters, const QString& workingDirectory)
+void SystemApi::startProcess(const QString& command,
+        const QString& cliParameters,
+        const QString& workingDirectory)
 {
     qDebug() << command << cliParameters;
     QProcess p;
